@@ -1,0 +1,38 @@
+<div class="contenedor-formulario">
+  <h2>{{ esModoEdicion ? '✏️ Editar Libro' : '➕ Agregar Nuevo Libro' }}</h2>
+
+  <form [formGroup]="libroForm" (ngSubmit)="guardarLibro()" class="formulario">
+
+    <mat-form-field appearance="fill" class="campo-completo">
+      <mat-label>Título del Libro</mat-label>
+      <input matInput formControlName="titulo" placeholder="Ej. Cien Años de Soledad">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo-completo">
+      <mat-label>Autor</mat-label>
+      <input matInput formControlName="autor" placeholder="Ej. Gabriel García Márquez">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo-completo">
+      <mat-label>Año de Publicación</mat-label>
+      <input matInput type="number" formControlName="anioPublicacion">
+    </mat-form-field>
+
+    <div class="checkbox-container">
+      <mat-checkbox formControlName="disponible" color="primary">
+        ¿El libro está disponible en la biblioteca?
+      </mat-checkbox>
+    </div>
+
+    <div class="botones">
+      <button mat-raised-button color="primary" type="submit" [disabled]="libroForm.invalid">
+        {{ esModoEdicion ? 'Actualizar Registro' : 'Guardar Libro' }}
+      </button>
+      
+      <button mat-button color="warn" type="button" routerLink="/">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+</div>

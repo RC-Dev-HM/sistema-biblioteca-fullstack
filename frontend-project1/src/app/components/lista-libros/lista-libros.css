@@ -1,0 +1,9 @@
+.contenedor {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto; /* Para centrarlo */
+}
+
+table {
+  width: 100%;
+}
